@@ -16,3 +16,19 @@ type Exchange struct {
 	CreateDate string `json:"create_date"`
 	gorm.Model
 }
+
+func NewFromRaw(rawExchange *GetExchangeResponse) *Exchange {
+	return &Exchange{
+		Code:       rawExchange.USDBRL.Code,
+		Codein:     rawExchange.USDBRL.Codein,
+		Name:       rawExchange.USDBRL.Name,
+		High:       rawExchange.USDBRL.High,
+		Low:        rawExchange.USDBRL.Low,
+		VarBid:     rawExchange.USDBRL.VarBid,
+		PctChange:  rawExchange.USDBRL.PctChange,
+		Bid:        rawExchange.USDBRL.Bid,
+		Ask:        rawExchange.USDBRL.Ask,
+		Timestamp:  rawExchange.USDBRL.Timestamp,
+		CreateDate: rawExchange.USDBRL.CreateDate,
+	}
+}
